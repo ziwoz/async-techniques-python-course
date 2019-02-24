@@ -22,8 +22,8 @@ def main():
                        )
 
     [t.start() for t in threads]
-    [t.join() for t in threads]
 
+    [t.join() for t in threads]
     dt = datetime.datetime.now() - t0
     print("Done in {:,.2f} sec.".format(dt.total_seconds()))
 

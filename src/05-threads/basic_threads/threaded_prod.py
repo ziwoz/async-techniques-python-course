@@ -27,8 +27,7 @@ def main():
             print("Cancelling on your request!", flush=True)
             break
 
-    dt = datetime.datetime.now() - t0
-    print(colorama.Fore.WHITE + "App exiting, total time: {:,.2f} sec.".format(dt.total_seconds()), flush=True)
+
 
 
 def check_cancel():
