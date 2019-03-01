@@ -3,6 +3,9 @@ import bs4
 from concurrent.futures import Future
 # from concurrent.futures.thread import ThreadPoolExecutor as PoolExecutor
 from concurrent.futures.process import ProcessPoolExecutor as PoolExecutor
+import time
+
+start = time.time()
 
 
 def main():
@@ -12,11 +15,106 @@ def main():
         'https://google.com',
         'https://realpython.com',
         'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
+        'https://talkpython.fm',
+        'https://pythonbytes.fm',
+        'https://google.com',
+        'https://realpython.com',
+        'https://training.talkpython.fm/',
     ]
 
     work = []
 
-    with PoolExecutor() as executor:
+    with PoolExecutor(max_workers=100) as executor:
         for url in urls:
             # print("Getting title from {}".format(url.replace('https', '')),
             #       end='... ',
@@ -30,6 +128,7 @@ def main():
     print("Done", flush=True)
     for f in work:
         print("{}".format(f.result()), flush=True)
+    print('Program took {} seconds'.format(time.time() - start))
 
 
 def get_title(url: str) -> str:
@@ -61,6 +160,8 @@ def get_title(url: str) -> str:
             return "NONE"
 
     return tag.get_text(strip=True)
+
+
 
 
 if __name__ == '__main__':
